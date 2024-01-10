@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<style>
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+}
+input.form-long {
+    width: 97.5%;
+}
+textarea {
+    width: 98%;
+}
+td {
+    padding: 0 5px;
+}
+
+</style>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ใบสมัครงาน</title>
+</head>
+<body>
+    <h1>ใบสมัครงาน</h1>
+    <form action="" method="post">
+        <div class="form-section">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="name"><b>ชื่อ *</b></label>
+                        </td>
+                        <td>
+                            <label for="surname"><b>นามสกุล *</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="name" name="name" required>            
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="surname" name="surname" required> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="email"><b>อีเมล *</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="email" class="form-long" id="email" name="email" required>            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="portfolio"><b>เว็บไซต์ผลงาน</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="url" class="form-long" id="portfolio" name="portfolio" value="http://">            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="position"><b>ตำแหน่งที่ต้องการสมัคร *</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" class="form-long" id="position" name="position" required>            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="salary"><b>เงินเดือนที่ต้องการ</b></label>
+                        </td>
+                        <td>
+                            <label for="starttime"><b>จะเริ่มงานได้เมื่อไหร่</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="salary" name="salary">            
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="starttime" name="starttime"> 
+                        </td>
+                    </tr>                               
+                    <tr>
+                        <td>
+                            <label for="phonenumber"><b>โทรศัพท์มือถือ*</b></label>
+                        </td>
+                        <td>
+                            <label for="homenumber"><b>โทรศัพท์บ้าน</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="phonenumber" name="phonenumber">            
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="homenumber" name="homenumber"> 
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td colspan="2">
+                            <label for="readytomove"><b>คุณสะดวกที่จะย้ายที่อยู่หรือไม่</b></label>
+                        </td>
+                    </tr>                     
+                    <tr>
+                        <td colspan="2">
+                            <input type="radio" id="move-ready" name="readytomove" value="ready" checked required>
+                            <label for="move-ready">สะดวก</label>
+                            <input type="radio" id="move-notready" name="readytomove" value="not-ready" required>
+                            <label for="move-notready">ไม่สะดวก</label>
+                            <input type="radio" id="move-notsure" name="readytomove" value="not-sure" required>
+                            <label for="move-notsure">ไม่สะดวก</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="lastjob"><b>ลักษณะงานที่ทำในที่ทำงานล่าสุด</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" class="form-long" id="lastjob" name="lastjob" style="width:98%;">            
+                        </td>
+                    </tr>                
+                    <tr>
+                        <td colspan="2">
+                            <label for="question"><b>คำถาม</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea id="question" name="question" rows="7">
+    
+                            </textarea>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+            <center>
+                <button type="submit">ส่งใบสมัคร</button>
+            </center>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #b9b3af;
+}
+
+.main {
+    font-size: 30px;
+    text-align: center;
+       padding: 10px;
+    border: 5px solid gray;
+    margin: 0; 
+}
+
+.timetable {
+    color: rgb(255,255,255);
+    background-color: black;
+    width: fit-content;
+}
+
+.timetable_data td {
+    white-space: pre;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1 {
+    color: rgb(255,255,255);
+}
+
+a,a:link, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+p { word-break: break-all; }
+.blog-content {
+ width:1000px;
+ margin:0 auto;
+}  
+
+.aboutme {
+    width:fit-content;
+    height: auto;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+  }
