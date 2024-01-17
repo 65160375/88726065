@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded",function() {
             todoInput.value = "";
         }
     }
+
+    function deleteTodo(index) {
+        todos.splice(index,1);
+        renderTodoList();
+    }
+
     function renderTodoList() {
         console.log(todos);
         todoList.innerHTML = "";
@@ -30,6 +36,7 @@ document.addEventListener("DOMContentLoaded",function() {
             }
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "ลบ";
+            deleteButton.addEventListener("click", () => deleteTodo(i));
             const completeButton = document.createElement("button");
             completeButton.textContent = todoItem.completed ? "ยกเลิก" : "เสร็จ";
             listItem.appendChild(completeButton);
