@@ -8,7 +8,7 @@ body {
 h1 {
     color: #333;
     font-size: 24px;
-    background-color: #bbffb2;
+    background-color: #33FFFF;
     padding: 15px;
     border-radius: 5px;
     color: rgb(0,0,0);
@@ -49,8 +49,8 @@ input[type="text"] {
 
 button {
     padding: 12px 24px;
-    background-color: #ffaced;
-    color: white;
+    background-color: #FFD700;
+    color: black;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -58,5 +58,6 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0028FF;
+    color:white;
 }
