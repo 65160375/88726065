@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded",function() {
         renderTodoList();
     }
 
+    function toggleComplete(index) {
+        todos[index].completed = !todos[index].completed;
+        renderTodoList();
+    }    
+
     function renderTodoList() {
         console.log(todos);
         todoList.innerHTML = "";
@@ -39,6 +44,7 @@ document.addEventListener("DOMContentLoaded",function() {
             deleteButton.addEventListener("click", () => deleteTodo(i));
             const completeButton = document.createElement("button");
             completeButton.textContent = todoItem.completed ? "ยกเลิก" : "เสร็จ";
+            completeButton.addEventListener("click", () => toggleComplete(i));
             listItem.appendChild(completeButton);
             listItem.appendChild(deleteButton);
             todoList.appendChild(listItem);
