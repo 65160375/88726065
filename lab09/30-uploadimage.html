@@ -1,0 +1,40 @@
+<h3>Upload a cat</h3>
+<input type="file" id="fileInput" />
+<input type="hidden" name="sub-id" id="sub-id" value="by-witty" />
+<button onclick="uploadImage()">Upload</button>
+<div id="uploadResults"></div>
+<script>
+  const API_URL = "https://api.thecatapi.com/v1/";
+  const API_KEY =
+    "live_wi8W9uSCtfH06vGrPz5g1a6S2b9wkMBBTWqfHBd3gP2ctcr4X6mRJLjFi3Sc8hOy";
+
+  function uploadImage() {
+    const fileInput = document.getElementById("fileInput");
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch(`${API_URL}images/upload`, {
+      method: "POST",
+      headers: {
+        "x-api-key": API_KEY,
+      },
+      body: formData,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        document.getElementById(
+          "uploadResults"
+        ).innerHTML = `<img src="${data.url}" width="50%" />`;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  // id : IjWRvudOB
+  // id : cKU-hvnfl
+</script>

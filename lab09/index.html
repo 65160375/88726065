@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <a class="active" href="index.html"><i class="fa fa-home"></i> รูปสุนัขของฉันทั้งหมด</a>
+        <a class="active" href="uploaddog.html"><i class="fa fa-upload"></i> อัพโหลดรูปสุนัข</a>
+    </div>
+    <div class="content">
+        <center>
+            <h2>รูปสุนัขของฉันทั้งหมด</h2>
+        </center>
+        <div id="imageContainer"></div>
+    </div>
+      
+</body>
+<script>
+    const API_URL = "https://api.thedogapi.com/v1/";
+    const API_KEY =
+        "live_gxasOc5y9iYD20XU4WqBJ4jNqPffOpoSRCPwxA6sSHFf8xP5CSv5YxDgKL3lNmRR";
+
+    function getMyUpload() {
+        fetch(`${API_URL}images/?limit=10&page=0&order=DESC`, {
+            method: "GET",
+            headers: {
+                "x-api-key": API_KEY,
+            },
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            let disp = document.getElementById("imageContainer");
+            if (data.length <= 0) {
+                disp.innerHTML = "<center>ไม่พบรูปของท่าน</center>"
+            }
+            else {
+                data.forEach((element) => {
+                    disp.innerHTML += `
+                    <img src="${element.url}" width="22%" title="${element.id}"/>
+                    <a href="#" onclick="deleteImage('${element.id}')"><img src="images/delete-24.png"></a>
+                    `;
+                });
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+    function clear() {
+        document.getElementById("imageContainer").innerHTML = "";
+    }
+    function deleteImage(id) {
+        fetch(`${API_URL}images/${id}`, {
+            method: "DELETE",
+            headers: {
+                "x-api-key": API_KEY,
+            },
+        })
+        .then((response) => {
+            clear();
+            getMyUpload();
+            Swal.fire({
+                icon: "success",
+                title: "ทำการลบรูปภาพเรียบร้อยแล้ว",
+                showConfirmButton: false,
+                timer: 1500
+            }); 
+        })
+        .then((data) => {           
+        })
+        .catch((error) => {
+            Swal.fire({
+                icon: "error",
+                title: "เกิดข้อผิดพลาดบางอย่าง",
+                showConfirmButton: false,
+                timer: 1500
+            }); 
+        });
+    }
+    getMyUpload();
+</script>
+
+</html>

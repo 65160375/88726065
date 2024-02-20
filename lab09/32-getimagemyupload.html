@@ -1,0 +1,52 @@
+<h3>Get image by my upload</h3>
+<div id="disp"></div>
+
+<script>
+  const API_URL = "https://api.thecatapi.com/v1/";
+  const API_KEY =
+    "live_wi8W9uSCtfH06vGrPz5g1a6S2b9wkMBBTWqfHBd3gP2ctcr4X6mRJLjFi3Sc8hOy";
+
+  function getMyUpload() {
+    fetch(`${API_URL}images/?limit=10&page=0&order=DESC`, {
+      method: "GET",
+      headers: {
+        "x-api-key": API_KEY,
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        let disp = document.getElementById("disp");
+        data.forEach((element) => {
+          disp.innerHTML += `<img src="${element.url}" width="22%" title="${element.id}"/>`;
+          // link for delete image by id
+          disp.innerHTML += `<a href="#" onclick="deleteImage('${element.id}')"><img src="images/delete-24.png"></a>`;
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  getMyUpload();
+
+  function deleteImage(pid) {
+    fetch(`${API_URL}images/${pid}`, {
+      method: "DELETE",
+      headers: {
+        "x-api-key": API_KEY,
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        alert("Image deleted successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+</script>
